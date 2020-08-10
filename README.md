@@ -1,4 +1,4 @@
-  # esp32-dht22-upython
+# esp32-dht22-upython
 A ESP32-based temperature monitor using micropython and a DHT22 sensor. This software sends data directly from the DHT22/ESP32 into an InfluxDB database.
 
 ## Installation
