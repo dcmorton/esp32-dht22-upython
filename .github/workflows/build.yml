@@ -23,6 +23,12 @@ jobs:
         IMAGE_TAG: ${{ github.sha }}
       run: docker run -v /workspace/output:/data/micropython/ports/esp32/build-GENERIC/ esp32-micropython-image-build-$IMAGE_TAG
 
+    - name: list files in /workspace/output
+      run: ls -lah /workspace/output
+
+    - name: list files /github/workspace
+      run: ls -lah /github/workspace
+
     - name: Upload firmware file to S3
       uses: zdurham/s3-upload-github-action@master
       with:
