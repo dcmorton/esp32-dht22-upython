@@ -10,6 +10,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - uses: benjlevesque/short-sha@v1.1
+      id: short-sha
 
     - name: Build complitation container
       env:
@@ -21,5 +23,14 @@ jobs:
         IMAGE_TAG: ${{ github.sha }}
       run: docker run -v /workspace/output:/data/micropython/ports/esp32/build-GENERIC/ esp32-micropython-image-build-$IMAGE_TAG
 
-    - name: check /workspace/output directory
-      run: ls -lah /workspace/output
+    - name: Upload firmware file to S3
+      uses: zdurham/s3-upload-github-action@master
+      with:
+        args: --acl public-read
+      env:
+        FILE: /workspace/output/firmware.bin
+        S3_KEY: esp32-dht22-upython-firmware-${{ steps.short-sha.outputs.sha }}.bin
+        AWS_REGION: 'us-east-1'
+        S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
