@@ -10,8 +10,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
-    - name: Build firmware in docker container
+      name: Build firmware in docker container
       runs:
         using: 'docker'
         image: 'Dockerfile'
