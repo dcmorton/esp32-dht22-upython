@@ -24,7 +24,7 @@ jobs:
       run: docker run -v /workspace/output:/data/micropython/ports/esp32/build-GENERIC/ esp32-micropython-image-build-$IMAGE_TAG
 
     - name: list files in /workspace/output
-      run: ls -lah /workspace/output
+      run: pwd && ls -lah /workspace/output
 
     - name: Upload firmware file to S3
       uses: zdurham/s3-upload-github-action@master
