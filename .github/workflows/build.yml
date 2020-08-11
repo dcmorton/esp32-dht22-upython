@@ -31,7 +31,7 @@ jobs:
       with:
         args: --acl public-read
       env:
-        FILE: ./output/firmware.bin
+        FILE: ./firmware.bin
         S3_KEY: esp32-dht22-upython-firmware-${{ steps.short-sha.outputs.sha }}.bin
         AWS_REGION: 'us-east-1'
         S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
