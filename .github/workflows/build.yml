@@ -1,6 +1,9 @@
 name: Firmware Image Build
 
-on: [push]
+on:
+  push:
+    paths-ignore:
+    - '**/README.md'
 
 jobs:
 
@@ -22,12 +25,6 @@ jobs:
       env:
         IMAGE_TAG: ${{ github.sha }}
       run: docker run -v /workspace/output:/data/micropython/ports/esp32/build-GENERIC/ esp32-micropython-image-build-$IMAGE_TAG
-
-    - name: list files in current working dir
-      run: pwd && ls -lah $(pwd)
-
-    - name: list files in /workspace/output
-      run: ls -lah /workspace/output
 
     - name: copy firmware file to current working dir
       run: cp -v /workspace/output/firmware.bin .
