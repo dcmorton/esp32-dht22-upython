@@ -15,3 +15,8 @@ jobs:
       env:
         IMAGE_TAG: ${{ github.sha }}
       run: docker build -t esp32-micropython-image-build-$IMAGE_TAG .
+
+    - name: Build firmware iamge in complitation container
+      env:
+        IMAGE_TAG: ${{ github.sha }}
+      run: docker run -v /workspace/output://data/micropython/ports/esp32/build-GENERIC/ esp32-micropython-image-build-$IMAGE_TAG
