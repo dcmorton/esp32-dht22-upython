@@ -26,9 +26,6 @@ jobs:
     - name: list files in /workspace/output
       run: ls -lah /workspace/output
 
-    - name: list files ./output
-      run: ls -lah ./output
-
     - name: Upload firmware file to S3
       uses: zdurham/s3-upload-github-action@master
       with:
