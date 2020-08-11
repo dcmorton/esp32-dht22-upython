@@ -10,7 +10,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      name: Build firmware in docker container
-      runs:
-        using: 'docker'
-        image: 'Dockerfile'
+
+    - name: Build complitation container
+      env:
+        IMAGE_TAG: ${{ github.sha }}
+      run: docker build -t esp32-micropython-image-build-$IMAGE_TAG .
