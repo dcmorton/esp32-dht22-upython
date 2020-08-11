@@ -29,6 +29,9 @@ jobs:
     - name: list files in /workspace/output
       run: ls -lah /workspace/output
 
+    - name: copy firmware file to current working dir
+      run: cp -v /workspace/output/firmware.bin .
+
     - name: Upload firmware file to S3
       uses: zdurham/s3-upload-github-action@master
       with:
