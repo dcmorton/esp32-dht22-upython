@@ -1,4 +1,4 @@
-FROM dcmorton/esp32-micropython-image-builder:latest
+FROM dcmorton/esp32-micropython-image-builder:stable
 
 COPY configmgr.py ${MICROPYTHON}/ports/esp32/modules
 COPY main.py ${MICROPYTHON}/ports/esp32/modules
