@@ -5,11 +5,11 @@ A ESP32-based temperature monitor using micropython and a DHT22 sensor. This sof
 
 ### Image Install
 - Setup `esptool.py`. See [here](http://docs.micropython.org/en/latest/esp32/tutorial/intro.html#deploying-the-firmware) for more instructions.
-- Download firmware from [here](https://esp32-dht22-upython-firmware.s3.amazonaws.com/esp32-dht22-upython-firmware-fa67872.bin)
+- Download firmware from [here](https://esp32-dht22-upython-firmware.s3.amazonaws.com/esp32-dht22-upython-firmware-9e54208.bin)
 - Flash ESP32
 ```
 esptool.py --port /dev/ttyUSB0 erase_flash
-esptool.py --chip esp32 --port /dev/ttyUSB0 write_flash -z 0x1000 esp32-dht22-upython-firmware-fa67872.bin
+esptool.py --chip esp32 --port /dev/ttyUSB0 write_flash -z 0x1000 esp32-dht22-upython-firmware-9e54208.bin
 ```
 
 Continue to [Setup Sensor](#setup-sensor) to complete setup
